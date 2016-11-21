@@ -38,6 +38,7 @@ export default class DayPicker extends Component {
     months: PropTypes.arrayOf(PropTypes.string),
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+    showWeekNumbers: PropTypes.bool,
 
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
@@ -442,6 +443,8 @@ export default class DayPicker extends Component {
           captionElement={ this.props.captionElement }
 
           onCaptionClick={ this.props.onCaptionClick }
+
+          showWeekNumbers={ this.props.showWeekNumbers }
         >
           {this.renderDayInMonth}
         </Month>);

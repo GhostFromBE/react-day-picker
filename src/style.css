@@ -67,6 +67,14 @@
         color: #8b9898;
       }
 
+      .DayPicker-WeekNumber {
+        display: table-cell;
+        padding: .5rem;
+        font-size: .875em;
+        text-align: center;
+        color: #8b9898;
+      }
+
   .DayPicker-Body {
     display: table-row-group;
   }

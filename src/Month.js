@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import DayPickerPropTypes from './PropTypes';
 import Weekdays from './Weekdays';
+import Week from "./Week";
 import { getWeekArray } from './Helpers';
 
 export default function Month({
@@ -19,6 +20,7 @@ export default function Month({
   weekClassName,
   weekdayElement,
   fixedWeeks,
+  showWeekNumbers
 }) {
   const captionProps = {
     date: month,
@@ -38,14 +40,17 @@ export default function Month({
         locale={ locale }
         localeUtils={ localeUtils }
         weekdayElement={ weekdayElement }
+        showWeekNumber={showWeekNumbers}
       />
       <div className={ wrapperClassName } role="grid">
-        {
-          weeks.map((week, j) =>
-            <div key={ j } className={ weekClassName } role="gridcell">
-              {week.map(day => children(day, month))}
-            </div>
-        )}
+        { weeks.map( (week, j) => <Week 
+            key={ j } 
+            week={week} 
+            children={children}
+            weekClassName={weekClassName}
+            month={month}
+            showWeekNumber={showWeekNumbers}>
+          </Week>)}
       </div>
     </div>
   );
@@ -67,4 +72,5 @@ Month.propTypes = {
   weekClassName: PropTypes.string,
   weekdayElement: PropTypes.element,
   fixedWeeks: PropTypes.bool,
+  showWeekNumbers: PropTypes.bool
 };

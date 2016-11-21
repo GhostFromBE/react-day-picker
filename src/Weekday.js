@@ -9,16 +9,18 @@ export default function Weekday({
   localeUtils,
   locale,
 }) {
+  let hasWeekDay = weekday !== undefined;
+
   let title;
-  if (weekdaysLong) {
+  if (weekdaysLong && hasWeekDay) {
     title = weekdaysLong[weekday];
-  } else {
+  } else if(hasWeekDay) {
     title = localeUtils.formatWeekdayLong(weekday, locale);
   }
   let content;
-  if (weekdaysShort) {
+  if (weekdaysShort && hasWeekDay) {
     content = weekdaysShort[weekday];
-  } else {
+  } else if (hasWeekDay) {
     content = localeUtils.formatWeekdayShort(weekday, locale);
   }
 
