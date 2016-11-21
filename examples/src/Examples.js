@@ -24,6 +24,7 @@ import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
+import WithWeekNumbers from './examples/WithWeekNumbers';
 
 const Prism = require('./vendors/prism');
 
@@ -128,6 +129,11 @@ const EXAMPLES = {
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
     Component: YearCalendar,
   },
+  weekNumbers: {
+    title: 'With Week Numbers',
+    description: 'Use <code>showWeekNumbers</code> to display the week number in front of a week',
+    Component: WithWeekNumbers
+  }
 };
 
 export default class Examples extends Component {

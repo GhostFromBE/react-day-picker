@@ -8,8 +8,13 @@ export default function Weekdays({
   locale,
   localeUtils,
   weekdayElement,
+  showWeekNumber
 }) {
   const days = [];
+
+  if(showWeekNumber)
+    days.push(React.cloneElement(weekdayElement, { key: "emptyDay"}));
+
   for (let i = 0; i < 7; i += 1) {
     const weekday = (i + firstDayOfWeek) % 7;
     const elementProps = {
@@ -41,4 +46,5 @@ Weekdays.propTypes = {
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
   weekdayElement: PropTypes.element,
+  showWeekNumber: PropTypes.bool
 };

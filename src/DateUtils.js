@@ -127,6 +127,25 @@ export function isDayInRange(day, range) {
     (from && to && isDayBetween(day, from, to));
 }
 
+/**
+* Return the weeknumder of the week the day belongs to.
+* see: http://stackoverflow.com/a/6117889
+*
+* @param {Date} day
+* @return {Number}
+*/
+export function getWeekNumber(day) {
+    // Copy date so don't modify original
+    let d = new Date(day);
+    d.setHours(0,0,0,0);
+    // Get first day of year
+    var yearStart = new Date(d.getFullYear(),0,1);
+    // Calculate full weeks to nearest Thursday
+    var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+    // Return array of year and week number
+    return weekNo;
+}
+
 export default {
   addDayToRange,
   addMonths,
@@ -136,4 +155,5 @@ export default {
   isDayBetween,
   isPastDay,
   isFutureDay,
+  getWeekNumber
 };
